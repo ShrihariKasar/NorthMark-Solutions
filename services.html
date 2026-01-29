@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Services | NorthMark Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+<div class="nav-wrap">
+  <div class="navbar">
+
+    <div class="nav-logo">
+      <img src="logo.png" alt="NorthMark Logo" />
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="industry.html" class="nav-link">Industries</a>
+      <a href="about.html" class="nav-link">About us</a>
+      <a href="contact.html" class="nav-link nav-contact">Contact</a>
+    </div>
+
+  </div>
+</div>
+<!-- SERVICES HUBS — ONE LINE -->
+<section class="services-hubs">
+
+  <!-- OPERATIONS -->
+  <div class="operations-card">
+    <div class="operations-center">Operations</div>
+
+    <div class="operations-btn top">Outsourced IT</div>
+    <div class="operations-btn left">Process Automation</div>
+    <div class="operations-btn right">System Support</div>
+    <div class="operations-btn bottom">Digital Transformation</div>
+  </div>
+
+  <!-- TECHNOLOGY -->
+  <div class="operations-card tech">
+    <div class="operations-center">Technology</div>
+
+    <div class="operations-btn top">AI Integration</div>
+    <div class="operations-btn left">Web Development</div>
+    <div class="operations-btn right">Cloud Systems</div>
+    <div class="operations-btn bottom">App Development</div>
+  </div>
+
+  <!-- MARKETING -->
+  <div class="operations-card marketing">
+    <div class="operations-center">Marketing</div>
+
+    <div class="operations-btn top">Digital Marketing</div>
+    <div class="operations-btn left">Performance Marketing</div>
+    <div class="operations-btn right">Brand Strategy</div>
+    <div class="operations-btn bottom">Audits & Reports</div>
+  </div>
+
+</section>
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+<script>
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('footer-placeholder').innerHTML = html;
+    });
+</script>
+
+</body>
+</html>

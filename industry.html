@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Industries | NorthMark Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Industries served by NorthMark Solutions. Systems built for scale, complexity, and operational clarity." />
+
+  <!-- JS FLAG FOR SAFE REVEALS -->
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="nav-wrap">
+  <div class="navbar">
+
+    <div class="nav-logo">
+      <img src="logo.png" alt="NorthMark Logo" />
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="industry.html" class="nav-link">Industries</a>
+      <a href="about.html" class="nav-link">About us</a>
+      <a href="contact.html" class="nav-link nav-contact">Contact</a>
+    </div>
+
+  </div>
+</div>
+
+<main>
+
+  <!-- INDUSTRIES -->
+  <section class="industries-section" aria-labelledby="industries-title">
+    <div class="industries-container">
+
+      <!-- HERO TEXT (NO REVEAL = NEVER BLANK) -->
+      <h1 id="industries-title" class="industries-title">
+        Industries We Serve
+      </h1>
+
+      <p class="industries-subtitle">
+        Systems built for complexity, scale, and operational clarity.
+      </p>
+
+      <div class="industries-grid">
+
+        <!-- REVEAL ONLY ON CARDS -->
+        <div class="industry-card reveal delay-1">
+          <img src="manufacturing.jpg" alt="Manufacturing industry" loading="lazy" />
+          <div class="industry-label">Manufacturing</div>
+        </div>
+
+        <div class="industry-card reveal delay-2">
+          <img src="technology.jpg" alt="Technology industry" loading="lazy" />
+          <div class="industry-label">Technology</div>
+        </div>
+
+        <div class="industry-card reveal delay-3">
+          <img src="education.jpg" alt="Education industry" loading="lazy" />
+          <div class="industry-label">Education</div>
+        </div>
+
+        <div class="industry-card reveal delay-4">
+          <img src="healthcare.jpg" alt="Healthcare industry" loading="lazy" />
+          <div class="industry-label">Healthcare</div>
+        </div>
+
+        <div class="industry-card reveal delay-5">
+          <img src="energy.jpg" alt="Energy industry" loading="lazy" />
+          <div class="industry-label">Energy</div>
+        </div>
+
+        <div class="industry-card reveal delay-6">
+          <img src="consumer-retail.png" alt="Consumer and retail industry" loading="lazy" />
+          <div class="industry-label">Consumer & Retail</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<div id="footer-placeholder" aria-live="polite"></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>

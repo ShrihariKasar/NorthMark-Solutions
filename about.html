@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="js">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us | NorthMark Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about NorthMark Solutions — your execution partner for growth, technology, and operations." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="nav-wrap">
+  <div class="navbar">
+
+    <div class="nav-logo">
+      <img src="logo.png" alt="NorthMark Logo" />
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="industry.html" class="nav-link">Industries</a>
+      <a href="about.html" class="nav-link">About us</a>
+      <a href="contact.html" class="nav-link nav-contact">Contact</a>
+    </div>
+
+  </div>
+</div>
+
+<main>
+
+  <!-- ABOUT HERO -->
+  <section class="about-hero reveal">
+    <div class="about-hero-container">
+      <h1>
+        Your partner for growth, tech, and operations.<br />
+        We build the system behind your growth.
+      </h1>
+    </div>
+  </section>
+
+  <!-- ABOUT BODY -->
+  <section class="about-body reveal">
+    <div class="about-body-container">
+      <p>
+        NorthMark supports businesses through digital transformation with a systems-first approach—connecting Marketing, Technology, and Operations into one aligned execution model.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHO WE WORK BEST WITH -->
+  <section class="about-values">
+    <div class="about-values-container">
+
+      <h2 class="reveal">We work best with teams that want:</h2>
+
+      <div class="about-values-grid">
+
+        <div class="about-value-card reveal delay-1">
+          <img src="clarity.jpeg" alt="Clarity" loading="lazy" />
+          <div>Clarity over chaos</div>
+        </div>
+
+        <div class="about-value-card reveal delay-2">
+          <img src="accountability.jpg" alt="Accountability" loading="lazy" />
+          <div>Accountability over activity</div>
+        </div>
+
+        <div class="about-value-card reveal delay-3">
+          <img src="systems.jpg" alt="Systems" loading="lazy" />
+          <div>Systems over short-term fixes</div>
+        </div>
+
+        <div class="about-value-card reveal delay-4">
+          <img src="scale.png" alt="Scale" loading="lazy" />
+          <div>Consistent scale over short term spikes</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT CLOSING — PREMIUM -->
+  <section class="about-closing premium-closing">
+    <div class="about-closing-container reveal">
+
+      <div class="closing-glow"></div>
+
+      <p class="closing-text">
+        Whether you're an SME building momentum, a funded startup moving fast, or an enterprise improving efficiency —
+        <span class="closing-highlight">
+          NorthMark becomes the execution partner behind the work.
+        </span>
+      </p>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<div id="footer-placeholder"></div>
+
+<!-- REVEAL + FOOTER SCRIPT -->
+<script>
+  /* Footer include */
+  fetch('footer.html')
+    .then(res => res.text())
+    .then(html => {
+      const footer = document.getElementById('footer-placeholder');
+      if (footer) footer.innerHTML = html;
+    });
+
+  /* Premium reveal system */
+  const revealElements = document.querySelectorAll('.reveal');
+
+  const revealObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealElements.forEach(el => revealObserver.observe(el));
+</script>
+
+</body>
+</html>
