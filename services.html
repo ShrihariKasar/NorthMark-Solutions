@@ -7,7 +7,7 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
@@ -16,7 +16,7 @@
   <div class="navbar">
 
     <div class="nav-logo">
-      <img src="logo.png" alt="NorthMark Logo" />
+      <img src="images/logo.png" alt="NorthMark Logo" />
     </div>
 
     <button class="nav-toggle" aria-label="Toggle menu">
@@ -33,6 +33,18 @@
 
   </div>
 </div>
+<!-- SERVICES HERO / POSITIONING -->
+<section class="services-intro">
+  <div class="services-intro-container">
+    <h1>Not just isolated services.</h1>
+    <h2>We build a full growth engine designed for long-term scale.</h2>
+
+    <p>
+      We help businesses scale by building strategy-led digital systems
+      across marketing, technology, and operations.
+    </p>
+  </div>
+</section>
 <!-- SERVICES HUBS — ONE LINE -->
 <section class="services-hubs">
 
@@ -40,43 +52,61 @@
   <div class="operations-card">
     <div class="operations-center">Operations</div>
 
-    <div class="operations-btn top">Outsourced IT</div>
-    <div class="operations-btn left">Process Automation</div>
-    <div class="operations-btn right">System Support</div>
-    <div class="operations-btn bottom">Digital Transformation</div>
+    <div class="operations-btn top">
+      <span>Outsourced<br>IT</span>
+    </div>
+    <div class="operations-btn left">
+      <span>Process<br>Automation</span>
+    </div>
+    <div class="operations-btn right">
+      <span>System<br>Support</span>
+    </div>
+    <div class="operations-btn bottom">
+      <span>Digital<br>Transformation</span>
+    </div>
   </div>
 
   <!-- TECHNOLOGY -->
   <div class="operations-card tech">
     <div class="operations-center">Technology</div>
 
-    <div class="operations-btn top">AI Integration</div>
-    <div class="operations-btn left">Web Development</div>
-    <div class="operations-btn right">Cloud Systems</div>
-    <div class="operations-btn bottom">App Development</div>
+    <div class="operations-btn top">
+      <span>AI<br>Integration</span>
+    </div>
+    <div class="operations-btn left">
+      <span>Web<br>Development</span>
+    </div>
+    <div class="operations-btn right">
+      <span>Cloud<br>Systems</span>
+    </div>
+    <div class="operations-btn bottom">
+      <span>App<br>Development</span>
+    </div>
   </div>
 
   <!-- MARKETING -->
   <div class="operations-card marketing">
     <div class="operations-center">Marketing</div>
 
-    <div class="operations-btn top">Digital Marketing</div>
-    <div class="operations-btn left">Performance Marketing</div>
-    <div class="operations-btn right">Brand Strategy</div>
-    <div class="operations-btn bottom">Audits & Reports</div>
+    <div class="operations-btn top">
+      <span>Digital<br>Marketing</span>
+    </div>
+    <div class="operations-btn left">
+      <span>Performance<br>Marketing</span>
+    </div>
+    <div class="operations-btn right">
+      <span>Brand<br>Strategy</span>
+    </div>
+    <div class="operations-btn bottom">
+      <span>Audits<br>& Reports</span>
+    </div>
   </div>
 
 </section>
 <!-- FOOTER -->
 <div id="footer-placeholder"></div>
-
-<script>
-  fetch('footer.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('footer-placeholder').innerHTML = html;
-    });
-</script>
+<!-- MAIN SCRIPT -->
+<script src="script.js"></script>
 
 </body>
 </html>

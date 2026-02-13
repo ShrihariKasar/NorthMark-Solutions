@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="js">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>NorthMark Solutions</title>
@@ -11,33 +11,32 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 <div class="nav-wrap">
   <div class="navbar">
 
     <div class="nav-logo">
-      <img src="logo.png" alt="NorthMark Logo" />
+      <img src="images/logo.png" alt="NorthMark Logo">
     </div>
 
     <button class="nav-toggle" aria-label="Toggle menu">
       <i class="fas fa-bars"></i>
     </button>
 
-    <div class="nav-links">
+    <nav class="nav-links">
       <a href="index.html" class="nav-link">Home</a>
       <a href="services.html" class="nav-link">Services</a>
       <a href="industry.html" class="nav-link">Industries</a>
       <a href="about.html" class="nav-link">About us</a>
       <a href="contact.html" class="nav-link nav-contact">Contact</a>
-    </div>
+    </nav>
 
   </div>
 </div>
-
 <!-- HERO -->
-<section class="hero">
+<!-- <section class="hero">
   <h1>Strategy First,</h1>
   <h2>Execution with Intent.</h2>
   <h2>For Systems That Scale.</h2>
@@ -50,8 +49,32 @@
     <a href="#" class="btn-primary">Get Started →</a>
     <a href="#" class="btn-secondary">Learn More</a>
   </div>
-</section>
+</section> -->
+<section class="hero">
+  <div class="hero-content">
 
+    <div class="hero-grid hero-center">
+
+      <!-- CENTERED TEXT (ANIMATE FROM LEFT) -->
+      <div class="hero-text hero-animate-left">
+        <h1>Strategy First,</h1>
+        <h2>Execution with Intent.</h2>
+        <h2>For Systems That Scale.</h2>
+
+        <p>
+          Strategy without execution is noise. Execution without strategy is waste.
+        </p>
+
+        <div class="cta">
+          <a href="#" class="btn-primary">Get Started</a>
+          <a href="#" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 <!-- WHO WE ARE -->
 <section class="who-we-are">
   <div class="who-container">
@@ -84,11 +107,6 @@
       </div>
 
       <div class="stat-card reveal">
-        <div class="stat-number" data-target="4">0</div>
-        <div class="stat-label">Core Business Verticals</div>
-      </div>
-
-      <div class="stat-card reveal">
         <div class="stat-number" data-target="98">0</div>
         <div class="stat-label">% Client Satisfaction</div>
       </div>
@@ -97,13 +115,13 @@
     <!-- FEATURE GRID -->
     <div class="feature-grid">
       <div class="feature-card reveal">
-        <h4>Strategy</h4>
-        <p>Data-backed planning aligned to long-term business goals and market positioning.</p>
+       <h4>Technology</h4>
+        <p>Scalable systems, automation, and modern architecture for growth-ready platforms.</p>
       </div>
 
       <div class="feature-card reveal">
-        <h4>Technology</h4>
-        <p>Scalable systems, automation, and modern architecture for growth-ready platforms.</p>
+        <h4>Sales</h4>
+        <p>Customer acquisition and retention strategies to drive growth.</p>
       </div>
 
       <div class="feature-card reveal">
@@ -120,139 +138,320 @@
   </div>
 </section>
 
+
 <!-- PROBLEM -->
 <section class="problem-section">
   <div class="problem-container">
 
-    <h3>The Problem</h3>
-    <h2 class="reveal">Connecting the dots</h2>
+    <!-- LEFT CONTENT -->
+    <div class="problem-content reveal from-left">
+      <h1>The Problem</h1>
+      <h2>Growth breaks when systems don’t talk</h2>
 
-    <p class="problem-lead reveal">
-      Growth stalls—not because of lack of effort—but because digital initiatives
-      aren’t built as one connected system.
-    </p>
+      <p class="problem-lead">
+        Businesses invest heavily in marketing, tools, and technology —
+        yet growth stalls. The issue isn’t effort.  
+        It’s fragmentation.
+      </p>
 
-    <!-- STABLE GRID (NO SLIDER) -->
+      <p class="problem-text">
+        When marketing, technology, and operations operate in silos,
+        teams lose visibility, waste budgets, and make reactive decisions.
+        Growth needs connected systems — not disconnected actions.
+      </p>
+    </div>
+
+    <!-- RIGHT GRID -->
     <div class="why-grid">
+
       <div class="why-card reveal">
         <h4>Isolated Marketing</h4>
-        <p>Marketing runs in isolation, using same old strategies.</p>
+        <p>
+          Campaigns run without alignment to business goals or system data,
+          resulting in low ROI and inconsistent growth.
+        </p>
       </div>
 
       <div class="why-card reveal">
-        <h4>No Clear Insights</h4>
-        <p>No clear picture of outcomes because of lack of insights & data.</p>
+        <h4>Lack of Data Visibility</h4>
+        <p>
+          Decision-makers don’t have real-time insights into performance,
+          customer behavior, or operational efficiency.
+        </p>
       </div>
 
       <div class="why-card reveal">
         <h4>Tool Overload</h4>
-        <p>Multiple tools trying to solve same issue creates new issues.</p>
+        <p>
+          Multiple tools solving the same problem create confusion,
+          duplication, and increased costs.
+        </p>
       </div>
 
       <div class="why-card reveal">
         <h4>Reactive Technology</h4>
-        <p>Technology implementation is reactive, not planned proactively.</p>
+        <p>
+          Technology decisions are made in response to problems,
+          not as part of a long-term growth strategy.
+        </p>
       </div>
 
       <div class="why-card reveal">
-        <h4>Unclear Adoption</h4>
-        <p>Lack of clarity while implementing new technology.</p>
+        <h4>Poor Adoption</h4>
+        <p>
+          Teams struggle to adopt new systems due to lack of clarity,
+          training, and ownership.
+        </p>
       </div>
 
       <div class="why-card reveal">
         <h4>Disconnected Execution</h4>
-        <p>Execution without context, strategy or intent.</p>
+        <p>
+          Teams execute tasks without understanding the “why”,
+          leading to inefficiency and missed opportunities.
+        </p>
       </div>
+
     </div>
 
   </div>
 </section>
 
+<!-- why this happen  -->
+<section class="why-section">
+  <div class="why-container">
+
+    <div class="why-header">
+      <h2>Why This Happens?</h2>
+      <p class="why-quote">
+        Strategy without execution is noise.<br />
+        Execution without strategy is waste.
+      </p>
+    </div>
+
+    <div class="why-content">
+      
+      <div class="why-left">
+        <h3>The Real Problem</h3>
+        <p>
+          Most digital initiatives fail not because of lack of effort,
+          but because of misaligned intent. Execution happens in silos,
+          disconnected from business outcomes.
+        </p>
+      </div>
+
+      <div class="why-right">
+        <h3>Because Most Digital Partners</h3>
+
+        <ul class="why-list">
+          <li>Execute tasks, not outcomes</li>
+          <li>Start with tools, not strategy</li>
+          <li>Optimize channels, not the business</li>
+          <li>Disappear after delivery</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- APPROACH -->
+<section class="approach-section" id="approach">
+
+  <h2 class="approach-title">Our Approach</h2>
+  <p class="approach-subtitle">
+    Strategy first. Execution with intent. Systems built to scale.
+  </p>
+
+  <div class="diagram-wrap">
+    <div class="diagram-flip">
+
+      <!-- SVG ARCS + CONNECTORS (/\ SHAPE) -->
+      <svg class="reveal delay-1" viewBox="0 0 900 700">
+
+        <!-- LEFT ARM -->
+        <path class="connector" d="M450,40 L100,560" />
+        <path class="connector" d="M450,40 L200,420" />
+        <path class="connector" d="M450,40 L320,240" />
+
+        <!-- RIGHT ARM -->
+        <path class="connector" d="M450,40 L800,560" />
+        <path class="connector" d="M450,40 L700,420" />
+        <path class="connector" d="M450,40 L580,240" />
+
+        <!-- Funnel guide arcs -->
+        <path class="arc" d="M80,540 Q450,140 820,540" />
+        <path class="arc" d="M180,400 Q450,80 720,400" />
+
+      </svg>
+
+      <!-- STEP 1 -->
+      <div class="node n1 reveal delay-3">
+        <div class="node-inner">
+          <h4>Strategy First</h4>
+          <p>Ownership of outcomes, data-driven decisions, sustainable growth.</p>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="node n2 reveal delay-4">
+        <div class="node-inner">
+          <h4>Understand Business</h4>
+          <p>Goals, gaps, challenges & constraints clearly identified.</p>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="node n3 reveal delay-5">
+        <div class="node-inner">
+          <h4>Design System</h4>
+          <p>Strategy, roadmap & scalable architecture.</p>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="node n4 reveal delay-6">
+        <div class="node-inner">
+          <h4>Execute with Ownership</h4>
+          <p>Marketing, tech & operations aligned.</p>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="node n5 reveal delay-7">
+        <div class="node-inner">
+          <h4>Test & Implement</h4>
+          <p>Analyse, test, iterate & implement.</p>
+        </div>
+      </div>
+
+      <!-- STEP 6 -->
+      <div class="node n6 reveal delay-8">
+        <div class="node-inner">
+          <h4>Optimize & Scale</h4>
+          <p>Fix leaks, improve efficiency & scale sustainably.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- WHY NORTHMARK -->
 <!-- WHY NORTHMARK -->
 <section class="northmark-section">
-  <div class="northmark-container">
+  <div class="northmark-container northmark-layout">
 
-    <h3 class="reveal">Why NorthMark?</h3>
+    <!-- LEFT TEXT -->
+    <div class="northmark-header left">
+      <h2>Why NorthMark?</h2>
+      <span class="northmark-tag">Outcome Aligned Execution</span>
+    </div>
 
-<div class="northmark-grid">
+    <!-- RIGHT TOP (2 CARDS) -->
+    <div class="northmark-top-cards">
 
-  <div class="northmark-item reveal from-left">
-    <h4>Outcome Ownership</h4>
-    <p>Ownership of the outcome — not just task execution.</p>
-  </div>
-
-  <div class="northmark-item reveal from-right">
-    <h4>End-to-End Transformation</h4>
-    <p>Complete digital transformation across Marketing, Technology & Operations.</p>
-  </div>
-
-  <div class="northmark-item reveal from-left">
-    <h4>Data-Backed Intelligence</h4>
-    <p>Business decisions powered by data-backed business intelligence.</p>
-  </div>
-
-  <div class="northmark-item reveal from-right">
-    <h4>Transparency & Accountability</h4>
-    <p>Utmost transparency, security, and accountability across execution.</p>
-  </div>
-
-  <div class="northmark-item reveal from-left">
-    <h4>Efficiency & Cost Optimization</h4>
-    <p>Cut down costs and improve efficiency with transparent, optimized systems.</p>
-  </div>
-
-</div>
-
-  </div>
-</section>
-
-<section class="northmark-section">
-  <div class="northmark-container">
-
-    <h3 class="reveal">Who We Work With</h3>
-
-    <div class="who-work-grid">
-
-      <div class="who-work-card reveal from-left">
-        <div class="who-number">01</div>
-        <h4>Founder & Leadership Teams</h4>
-        <p>Strategic partners for leadership-driven growth and transformation.</p>
+      <div class="northmark-card">
+        <h3>Ownership of Outcomes</h3>
+        <p>
+          We take full ownership of results — not just completing tasks,
+          but driving measurable business outcomes.
+        </p>
       </div>
 
-      <div class="who-work-card reveal from-right">
-        <div class="who-number">02</div>
-        <h4>B2B & B2C Businesses</h4>
-        <p>Organizations focused on scalable customer acquisition and operations.</p>
+      <div class="northmark-card">
+        <h3>Complete Digital Transformation</h3>
+        <p>
+          End-to-end transformation across Marketing, Technology,
+          and Operations aligned to business goals.
+        </p>
       </div>
 
-      <div class="who-work-card reveal from-left">
-        <div class="who-number">03</div>
-        <h4>SMEs, Startups & Scaling Businesses</h4>
-        <p>Companies preparing systems for sustainable scale.</p>
+    </div>
+
+    <!-- BOTTOM ROW (3 CARDS) -->
+    <div class="northmark-bottom-cards">
+
+      <div class="northmark-card">
+        <h3>Data-Backed Intelligence</h3>
+        <p>
+          Decisions powered by real-time data, analytics,
+          and actionable business intelligence.
+        </p>
       </div>
 
-      <div class="who-work-card reveal from-right">
-        <div class="who-number">04</div>
-        <h4>Experts & Consultants</h4>
-        <p>Professionals building digital-first, system-driven practices.</p>
+      <div class="northmark-card">
+        <h3>Transparency & Accountability</h3>
+        <p>
+          Utmost transparency, security, and accountability
+          across systems, data, and execution.
+        </p>
+      </div>
+
+      <div class="northmark-card highlight">
+        <h3>Cost & Efficiency Optimization</h3>
+        <p>
+          Cut costs, improve efficiency, and scale sustainably
+          through transparent, optimized systems.
+        </p>
       </div>
 
     </div>
 
   </div>
 </section>
+<section class="who-we-work">
+  <div class="container">
 
-<!-- FOOTER -->
+    <!-- ALL TEXT ON TOP -->
+    <div class="who-work-header">
+      <h2>Who We Work With</h2>
+
+      <p class="lead">
+        We partner with ambitious individuals and organizations that believe
+        in innovation, clarity, and sustainable growth.
+      </p>
+
+      <p class="supporting-text">
+        Our approach is tailored for leaders and businesses who want measurable
+        results, strong digital presence, and long-term impact.
+      </p>
+    </div>
+
+    <!-- CARDS GRID BELOW -->
+    <div class="cards two-col-cards">
+
+      <!-- 1 -->
+      <div class="card">
+        <span class="number">01</span>
+        <h3>Founder & Leadership Teams</h3>
+        <p>Visionary leaders shaping strategy and growth.</p>
+      </div>
+
+      <!-- 3 -->
+      <div class="card">
+        <span class="number">03</span>
+        <h3>SMEs, Startups & Scaling Businesses</h3>
+        <p>Growing companies ready to scale efficiently.</p>
+      </div>
+
+      <!-- 2 -->
+      <div class="card">
+        <span class="number">02</span>
+        <h3>B2B & B2C Businesses</h3>
+        <p>Customer-focused businesses driving performance.</p>
+      </div>
+
+      <!-- 4 -->
+      <div class="card">
+        <span class="number">04</span>
+        <h3>Experts & Consultants</h3>
+        <p>Professionals expanding digital influence.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 <div id="footer-placeholder"></div>
-
-<script>
-  fetch('footer.html')
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById('footer-placeholder').innerHTML = html;
-    });
-</script>
-
 <script src="script.js"></script>
 </body>
 </html>

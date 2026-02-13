@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
 
@@ -19,7 +19,7 @@
   <div class="navbar">
 
     <div class="nav-logo">
-      <img src="logo.png" alt="NorthMark Logo" />
+      <img src="images/logo.png" alt="NorthMark Logo" />
     </div>
 
     <button class="nav-toggle" aria-label="Toggle menu">
@@ -67,22 +67,22 @@
       <div class="about-values-grid">
 
         <div class="about-value-card reveal delay-1">
-          <img src="clarity.jpeg" alt="Clarity" loading="lazy" />
+          <img src="images/clarity.jpeg" alt="Clarity" loading="lazy" />
           <div>Clarity over chaos</div>
         </div>
 
         <div class="about-value-card reveal delay-2">
-          <img src="accountability.jpg" alt="Accountability" loading="lazy" />
+          <img src="images/accountability.jpg" alt="Accountability" loading="lazy" />
           <div>Accountability over activity</div>
         </div>
 
         <div class="about-value-card reveal delay-3">
-          <img src="systems.jpg" alt="Systems" loading="lazy" />
+          <img src="images/systems.jpg" alt="Systems" loading="lazy" />
           <div>Systems over short-term fixes</div>
         </div>
 
         <div class="about-value-card reveal delay-4">
-          <img src="scale.png" alt="Scale" loading="lazy" />
+          <img src="images/scale.png" alt="Scale" loading="lazy" />
           <div>Consistent scale over short term spikes</div>
         </div>
 
@@ -110,34 +110,6 @@
 
 <!-- FOOTER -->
 <div id="footer-placeholder"></div>
-
-<!-- REVEAL + FOOTER SCRIPT -->
-<script>
-  /* Footer include */
-  fetch('footer.html')
-    .then(res => res.text())
-    .then(html => {
-      const footer = document.getElementById('footer-placeholder');
-      if (footer) footer.innerHTML = html;
-    });
-
-  /* Premium reveal system */
-  const revealElements = document.querySelectorAll('.reveal');
-
-  const revealObserver = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  revealElements.forEach(el => revealObserver.observe(el));
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

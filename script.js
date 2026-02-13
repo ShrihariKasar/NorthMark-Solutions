@@ -1,15 +1,39 @@
-/* ================= DOM READY WRAPPER ================= */
+/* ===========================
+   NORTHMARK — MAIN SCRIPT
+=========================== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* Enable JS class for animations */
+  /* ================= ENABLE JS MODE ================= */
   document.documentElement.classList.add('js');
 
-  /* ================= ANIMATED STAT COUNTERS ================= */
+  /* ================= NAVBAR TOGGLE ================= */
 
-  const statNumbers = document.querySelectorAll('.stat-number');
+  const toggle   = document.querySelector('.nav-toggle');
+  const navWrap  = document.querySelector('.nav-wrap');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (toggle && navWrap && navLinks) {
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navWrap.classList.toggle('open');
+    });
+
+    navLinks.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    document.addEventListener('click', () => {
+      navWrap.classList.remove('open');
+    });
+  }
+
+  /* ================= STATS COUNTER ================= */
+
+  const statNumbers  = document.querySelectorAll('.stat-number');
   const statsSection = document.querySelector('.stats-grid');
-  let statsStarted = false;
+  let statsStarted   = false;
 
   function animateStats() {
     if (statsStarted) return;
@@ -17,13 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     statNumbers.forEach(stat => {
       const target = Number(stat.dataset.target || 0);
-      let current = 0;
-      const steps = 60;
-      const increment = target / steps || 1;
+      let current  = 0;
+      const steps  = 60;
+      const inc    = target / steps || 1;
 
       const counter = setInterval(() => {
-        current += increment;
-
+        current += inc;
         if (current >= target) {
           stat.textContent = target;
           clearInterval(counter);
@@ -34,27 +57,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (statsSection && statNumbers.length > 0) {
+  if (statsSection && statNumbers.length) {
     const statsObserver = new IntersectionObserver(
       entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateStats();
-            statsObserver.disconnect();
-          }
-        });
+        if (entries[0].isIntersecting) {
+          animateStats();
+          statsObserver.disconnect();
+        }
       },
       { threshold: 0.3 }
     );
-
     statsObserver.observe(statsSection);
   }
 
-  /* ================= REVEAL ANIMATIONS ================= */
+  /* ================= REVEAL ON SCROLL ================= */
 
   const revealElements = document.querySelectorAll('.reveal');
 
-  if (revealElements.length > 0) {
+  if (revealElements.length) {
     const revealObserver = new IntersectionObserver(
       entries => {
         entries.forEach(entry => {
@@ -70,6 +90,24 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
   }
 
+  /* ================= SERVICES HUBS ANIMATION ================= */
+
+  const servicesHubs = document.querySelector('.services-hubs');
+  const hubCards     = document.querySelectorAll('.operations-card');
+
+  if (servicesHubs && hubCards.length) {
+
+    /* Step 1 — hubs move from center after 2s */
+    setTimeout(() => {
+      servicesHubs.classList.add('hubs-enter');
+    }, 1000);
+
+    /* Step 2 — pills appear + rotate after 3s */
+    setTimeout(() => {
+      hubCards.forEach(card => card.classList.add('pills-active'));
+    }, 2000);
+  }
+
   /* ================= FOOTER INCLUDE ================= */
 
   const footerPlaceholder = document.getElementById('footer-placeholder');
@@ -77,12 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (footerPlaceholder) {
     fetch('footer.html')
       .then(res => res.text())
-      .then(html => {
-        footerPlaceholder.innerHTML = html;
-      })
-      .catch(err => {
-        console.warn('Footer failed to load:', err);
-      });
+      .then(html => footerPlaceholder.innerHTML = html)
+      .catch(err => console.warn('Footer load failed:', err));
   }
 
   /* ================= CONTACT INTRO AUTO-REMOVE ================= */
@@ -90,22 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const intro = document.getElementById('contactIntro');
 
   if (intro) {
-    setTimeout(() => {
-      intro.remove();
-    }, 3000);
+    setTimeout(() => intro.remove(), 3000);
   }
 
 });
-document.addEventListener('DOMContentLoaded', () => {
-  const navToggle = document.querySelector('.nav-toggle');
-  const navWrap = document.querySelector('.nav-wrap');
-
-  if (!navToggle || !navWrap) {
-    console.warn('Navbar toggle elements not found');
-    return;
-  }
-
-  navToggle.addEventListener('click', () => {
-    navWrap.classList.toggle('open');
+window.addEventListener("load", () => {
+    document.querySelectorAll(".operations-card").forEach(card => {
+      card.classList.add("pills-active");
+    });
   });
-});
