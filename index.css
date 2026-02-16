@@ -1183,11 +1183,12 @@
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   text-align: left;
+  margin-top: 1.2rem;
 }
-
 .northmark-header.left h2 {
-  font-size: 2.6rem;
-  margin-bottom: 0.8rem;
+  font-size: clamp(2.8rem, 3.2vw, 3.2rem); /* responsive larger */
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
 }
 
 .northmark-tag {
@@ -1204,7 +1205,7 @@
 .northmark-top-cards {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
-
+  margin-top: 0.5rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
