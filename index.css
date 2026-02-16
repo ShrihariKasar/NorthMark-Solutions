@@ -1183,20 +1183,25 @@
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   text-align: left;
-}
 
+  margin-top: 8.2rem;
+}
 .northmark-header.left h2 {
-  font-size: 2.6rem;
-  margin-bottom: 0.8rem;
+  font-size: clamp(3rem, 3.6vw, 3.4rem);
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
 }
-
+.northmark-top-cards {
+  margin-top: 0.4rem;   /* subtle optical alignment with title */
+}
 .northmark-tag {
   display: inline-block;
   background: linear-gradient(135deg, rgba(15,15,15,0.92), rgba(40,40,40,0.92));
   color: #fff;
-  padding: 0.5rem 1.2rem;
-  border-radius: 999px;
+  padding: 0.55rem 1.35rem;
   font-size: 0.95rem;
+  border-radius: 999px;
   font-weight: 600;
 }
 
@@ -2284,7 +2289,7 @@
     }
 
     .northmark-section {
-      padding: 100px 20px;
+      padding: 7rem 1rem 6.5rem;
     }
   }
   @media (max-width: 600px) {
