@@ -133,3 +133,40 @@ window.addEventListener("load", () => {
       card.classList.add("pills-active");
     });
   });
+  /* ===== SCROLL POP ANIMATION (Mobbin-style) ===== */
+
+function initServiceHubAnimations() {
+  const prefersReducedMotion =
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReducedMotion) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const hub = entry.target;
+        hub.classList.add("visible");
+
+        const buttons = hub.querySelectorAll(".operations-btn");
+
+        buttons.forEach((btn, index) => {
+          setTimeout(() => {
+            btn.classList.add("visible");
+          }, 120 * index + 200); // staggered pop
+        });
+
+        observer.unobserve(hub);
+      });
+    },
+    { threshold: 0.25 }
+  );
+
+  document.querySelectorAll(".operations-card").forEach((hub) => {
+    observer.observe(hub);
+  });
+}
+
+/* run after page load */
+window.addEventListener("DOMContentLoaded", initServiceHubAnimations);
