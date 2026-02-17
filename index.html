@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <title>NorthMark Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0a0a0a">
   <!-- Inter Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
@@ -464,6 +465,44 @@ Execution without strategy is waste.
     </div>
   </div>
 </section>
+<script>
+let deferredPrompt;
+const installBtn = document.getElementById("installBtn");
+
+/* Hide button initially */
+installBtn.style.display = "none";
+
+/* Capture install event */
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();              // stop mini-infobar
+  deferredPrompt = e;              // store event
+  installBtn.style.display = "inline-block";  // show footer button
+});
+
+/* On button click → show install popup */
+installBtn.addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+
+  deferredPrompt.prompt();          // open install dialog
+
+  const { outcome } = await deferredPrompt.userChoice;
+
+  if (outcome === "accepted") {
+    console.log("User installed the app");
+  } else {
+    console.log("User dismissed install");
+  }
+
+  deferredPrompt = null;
+  installBtn.style.display = "none"; // hide after action
+});
+
+/* Hide button after successful install */
+window.addEventListener("appinstalled", () => {
+  console.log("PWA installed successfully");
+  installBtn.style.display = "none";
+});
+</script>
 <div id="footer-placeholder"></div>
 <script src="script.js"></script>
 </body>

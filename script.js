@@ -170,3 +170,7 @@ function initServiceHubAnimations() {
 
 /* run after page load */
 window.addEventListener("DOMContentLoaded", initServiceHubAnimations);
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js")
+    .then(() => console.log("Service Worker Registered"));
+}
