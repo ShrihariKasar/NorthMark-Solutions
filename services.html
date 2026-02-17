@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" class="h-full">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Premium Services Hub</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | NorthMark Solutions</title>
+
+  <meta name="description" content="Industries served by NorthMark Solutions. Systems built for scale, complexity, and operational clarity." />
+
+  <!-- JS flag -->
+  <script>
+    document.documentElement.classList.add('js');
+  </script>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
+  <!-- SDK -->
   <script src="/_sdk/element_sdk.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Global styles -->
   <style>
     * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
     
@@ -76,22 +92,520 @@
       opacity: 1;
       transform: translateY(0);
     }
+      /* ================= NAVBAR ================= */
+
+  .nav-wrap {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #ffffff;
+    z-index: 9999;
+    border-bottom: 1px solid #ededed;
+  }
+
+ /* ================= NAVBAR — ENTERPRISE ================= */
+.navbar {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 28px;              /* slightly more breathing space */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* ================= LOGO ================= */
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo img {
+  height: 58px;                    /* larger, more premium presence */
+  width: auto;
+  display: block;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Subtle enterprise hover */
+.nav-logo img:hover {
+  transform: scale(1.05);
+  opacity: 0.92;
+}
+
+/* ================= NAV LINKS ================= */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;                     /* consistent spacing system */
+}
+
+/* ================= DOWNLOAD BUTTON ================= */
+.btn-download {
+  margin-left: 0.5rem;             /* slight separation from links */
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  background: #0b0b0b;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Premium lift on hover */
+.btn-download:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+  .nav-link {
+    position: relative;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #111;
+    padding-bottom: 6px;
+    transition: color 0.25s ease;
+  }
+
+  /* UNDERLINE */
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: currentColor;
+    transform: translateX(-50%);
+    transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* HOVER */
+  .nav-link:hover {
+    color: #000;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* ACTIVE PAGE */
+  .nav-link.active::after {
+    width: 100%;
+  }
+  .nav-contact::after {
+    background: #e10600;
+  }
+  .nav-contact {
+    color: #e10600;
+    font-weight: 600;
+  }
+
+  /* TOGGLE */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* ================= MOBILE ================= */
+  @media (max-width: 900px) {
+
+    .nav-toggle {
+      display: block;
+      z-index: 10001;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 72px;
+      left: 50%;
+      width: 92%;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+
+      /* CLOSED STATE */
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+
+      transform: translateX(-50%) translateY(-10px) scale(0.98);
+
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s cubic-bezier(0.22,1,0.36,1),
+        visibility 0s linear 0.25s;
+
+      z-index: 10000;
+    }
+
+    /* OPEN STATE */
+    .nav-wrap.open .nav-links {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+
+      transform: translateX(-50%) translateY(0) scale(1);
+
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s cubic-bezier(0.22,1,0.36,1),
+        visibility 0s;
+    }
+    .nav-links.show {
+      display: flex;
+    }
+    .hero h1 {
+      font-size: 2.4rem;
+    }
+
+    .hero h2 {
+      font-size: 1.7rem;
+    }
+  }
+  .approach-section {
+    padding: 120px 0;
+    background: linear-gradient(
+      135deg,
+      rgba(15,15,15,0.92),
+      rgba(0, 0, 0, 0.92)
+    );
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .approach-title {
+    font-size: 42px;
+    margin-bottom: 10px;
+  }
+
+  .approach-subtitle {
+    color: #9aa4b2;
+    margin-bottom: 60px;
+  }
+.diagram-wrap {
+  position: relative;
+  width: 900px;
+  height: 560px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* 🔁 FLIP ONLY THE DIAGRAM (LINES + ARCS) */
+.diagram-wrap svg {
+  transform-origin: top;
+}
+  /* ================= HERO — ENTERPRISE (CENTERED) ================= */
+  .hero {
+    min-height: auto;
+    padding: 120px 24px 80px;
+    background: #ffffff;
+    color: #0b0b0b;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 2rem;
+  }
+    /* ==============================
+    PREMIUM NORTHMARK FOOTER — CLEAN & PRO
+  ============================== */
+
+  .site-footer {
+    position: relative;
+    background:
+      radial-gradient(1200px 400px at 10% -10%, rgba(255,255,255,0.04), transparent 40%),
+      radial-gradient(900px 300px at 90% 110%, rgba(255,255,255,0.03), transparent 40%),
+      #0b0b0b;
+    color: #ffffff;
+    padding: 64px 6vw 28px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    overflow: hidden;
+  }
+
+  /* subtle top glow line */
+  .site-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 60%;
+    height: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  }
+
+  /* MAIN GRID — 5 COLUMN LAYOUT */
+  .footer-main {
+    display: grid;
+    grid-template-columns: 1.2fr 1.5fr 1.3fr 1fr auto;
+    align-items: flex-start;
+    gap: 48px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* LOGO */
+  .footer-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-brand img {
+    height: 160px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 30px rgba(255,255,255,0.12));
+  }
+
+  /* COMPANY INFO */
+  .footer-company {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #d7d7d7;
+    max-width: 340px;
+  }
+
+  .footer-company strong {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  /* CONTACT LINKS */
+  .footer-contact a {
+    display: block;
+    color: #bcbcbc;
+    text-decoration: none;
+    margin-top: 4px;
+    transition: color 0.2s ease;
+  }
+
+  .footer-contact a:hover {
+    color: #ffffff;
+  }
+
+  /* SLOGANS */
+  .footer-slogans {
+    max-width: 360px;
+  }
+
+  .footer-slogans div {
+    font-size: 14px;
+    color: #d7d7d7;
+    line-height: 1.5;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+  }
+
+  /* NAV LINKS */
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-links h4 {
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  .footer-links a {
+    text-decoration: none;
+    color: #bcbcbc;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    transition: all 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: #ffffff;
+    transform: translateX(3px);
+  }
+
+  /* SOCIAL */
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    align-self: flex-start;
+  }
+
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,0.12), transparent 60%),
+      linear-gradient(180deg, #161616, #0f0f0f);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 13px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.08),
+      0 8px 18px rgba(0,0,0,0.5);
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .footer-social a:hover {
+    background: #ffffff;
+    color: #0b0b0b;
+    border-color: #ffffff;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.7);
+  }
+
+  /* BOTTOM BAR */
+  .footer-bottom {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+    font-size: 12px;
+    color: #9a9a9a;
+    letter-spacing: 0.3px;
+  }
+
+  /* ==============================
+    RESPONSIVE
+  ============================== */
+
+  @media (max-width: 900px) {
+    .footer-main {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-social {
+      justify-content: flex-start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-main {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      text-align: center;
+    }
+
+    .footer-left {
+      justify-content: center;
+    }
+
+    .footer-social {
+      justify-content: center;
+    }
+
+    .footer-brand img {
+      height: 90px;
+    }
+  }
+  .services-intro {
+  padding: 20px 0 60px;
+  color: #0b0b0b;
+}
+
+.services-intro-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.services-intro h1 {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 4px;
+}
+
+.services-intro h2 {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: #111111;
+}
+
+.services-intro p {
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #6b6b6b;
+}
   </style>
 </head>
+<div class="nav-wrap">
+  <div class="navbar">
+
+    <div class="nav-logo">
+      <img src="images/logo.png" alt="NorthMark Logo" />
+    </div>
+
+    <button class="nav-toggle" aria-label="Toggle menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="industry.html" class="nav-link">Industries</a>
+      <a href="about.html" class="nav-link">About us</a>
+      <a href="contact.html" class="nav-link nav-contact">Contact</a>
+    </div>
+
+  </div>
+</div>
 <body class="h-full overflow-auto" style="background-color: #F5F7FA;">
   <main class="w-full min-h-full py-16 md:py-24" style="background-color: #F5F7FA;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Section Header -->
-      <div class="text-center mb-16 md:mb-20">
-        <h1 id="section-title" class="text-4xl md:text-5xl font-bold mb-4" style="color: #0F172A;">Our Services</h1>
-        <p id="section-subtitle" class="text-lg md:text-xl max-w-2xl mx-auto" style="color: #64748B;">Comprehensive solutions tailored for modern enterprises</p>
-      </div>
-      
+      <section class="services-intro">
+  <div class="services-intro-container">
+
+    <h1>Our Services</h1>
+
+    <h2>
+      Not just isolated services.  
+      We build a full growth engine designed for long-term scale.
+    </h2>
+
+    <p>
+      We help businesses scale by building strategy-led digital systems across
+      marketing, technology, and operations.
+    </p>
+
+  </div>
+</section>
       <!-- Services Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 xl:gap-10">
         
         <!-- Operations Hub -->
-        <div class="flex justify-center">
+        <div class="flex justify-center lg:-translate-x-16 xl:-translate-x-24">
           <div class="relative w-72 h-72 md:w-80 md:h-80 fade-in" data-hub="operations">
             <!-- Circle Background -->
             <div class="hub-circle absolute inset-0 rounded-full" style="background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 20px 60px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255,255,255,0.6);"></div>
@@ -114,7 +628,7 @@
             </button>
             
             <!-- Right -->
-            <button class="service-btn btn-entrance float-2 absolute top-[38%] -translate-y-1/2 -right-6 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="80">
+            <button class="service-btn btn-entrance float-2 absolute top-[38%] -translate-y-1/2 -right-20 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="80">
               <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #DCFCE7 0%, #BBF7D0 100%);">
                 <svg class="w-5 h-5" style="color: #16A34A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
               </div>
@@ -136,7 +650,7 @@
             </button>
             
             <!-- Left -->
-            <button class="service-btn btn-entrance float-4 absolute top-[38%] -translate-y-1/2 -left-6 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="240">
+            <button class="service-btn btn-entrance float-4 absolute top-[38%] -translate-y-1/2 -left-20 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="240">
               <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #F3E8FF 0%, #E9D5FF 100%);">
                 <svg class="w-5 h-5" style="color: #9333EA;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               </div>
@@ -149,7 +663,7 @@
         </div>
         
         <!-- Technology Hub -->
-        <div class="flex justify-center">
+        <div class="flex justify-center lg:-translate-x-6 xl:-translate-x-4">
           <div class="relative w-72 h-72 md:w-80 md:h-80 fade-in" data-hub="technology">
             <!-- Circle Background -->
             <div class="hub-circle absolute inset-0 rounded-full" style="background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 20px 60px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255,255,255,0.6);"></div>
@@ -172,7 +686,7 @@
             </button>
             
             <!-- Right -->
-            <button class="service-btn btn-entrance float-3 absolute top-[38%] -translate-y-1/2 -right-6 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="180">
+            <button class="service-btn btn-entrance float-3 absolute top-[38%] -translate-y-1/2 -right-20 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="180">
               <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #FCE7F3 0%, #FBCFE8 100%);">
                 <svg class="w-5 h-5" style="color: #DB2777;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
               </div>
@@ -194,7 +708,7 @@
             </button>
             
             <!-- Left -->
-            <button class="service-btn btn-entrance float-4 absolute top-[38%] -translate-y-1/2 -left-6 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="340">
+            <button class="service-btn btn-entrance float-4 absolute top-[38%] -translate-y-1/2 -left-20 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="340">
               <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #FEE2E2 0%, #FECACA 100%);">
                 <svg class="w-5 h-5" style="color: #DC2626;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
               </div>
@@ -207,7 +721,7 @@
         </div>
         
         <!-- Marketing Hub -->
-        <div class="flex justify-center md:col-span-2 lg:col-span-1">
+        <div class="flex justify-center md:col-span-2 lg:col-span-1 lg:translate-x-16 xl:translate-x-24">
           <div class="relative w-72 h-72 md:w-80 md:h-80 fade-in" data-hub="marketing">
             <!-- Circle Background -->
             <div class="hub-circle absolute inset-0 rounded-full" style="background: rgba(255, 255, 255, 0.9); border: 1px solid rgba(255, 255, 255, 0.9); box-shadow: 20px 60px rgba(15, 23, 42, 0.06), inset 0 1px 0 rgba(255,255,255,0.6);"></div>
@@ -230,7 +744,7 @@
             </button>
             
             <!-- Right -->
-            <button class="service-btn btn-entrance float-1 absolute top-[38%] -translate-y-1/2 -right-6 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="280">
+            <button class="service-btn btn-entrance float-1 absolute top-[38%] -translate-y-1/2 -right-20 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="280">
               <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #E0E7FF 0%, #C7D2FE 100%);">
                 <svg class="w-5 h-5" style="color: #4F46E5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
               </div>
@@ -252,7 +766,7 @@
             </button>
             
             <!-- Left -->
-            <button class="service-btn btn-entrance float-2 absolute top-[38%] -translate-y-1/2 -left-6 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="440">
+            <button class="service-btn btn-entrance float-2 absolute top-[38%] -translate-y-1/2 -left-20 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="440">
               <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);">
                 <svg class="w-5 h-5" style="color: #059669;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               </div>
@@ -267,7 +781,8 @@
       </div>
     </div>
   </main>
-
+<div id="footer-placeholder" aria-live="polite"></div>
+<script src="script.js" defer></script>
   <script>
     const defaultConfig = {
       section_title: 'Our Services',
@@ -445,5 +960,5 @@
     
     initScrollAnimations();
   </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cf37f8010e0a762',t:'MTc3MTMxMjU3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cf37f8010e0a762',t:'MTc3MTMxMjU3My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
