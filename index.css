@@ -1131,10 +1131,10 @@
   background: #2f2f2f;
   color: #ffffff;
 
-  padding: 12px 22px;        /* smaller size */
-  border-radius: 999px;      /* perfect pill */
+  padding: 12px 22px;     
+  border-radius: 999px;    
 
-  font-size: 15px;           /* reduced text */
+  font-size: 20px;      
   font-weight: 600;
   line-height: 1.5;
   text-align: center;

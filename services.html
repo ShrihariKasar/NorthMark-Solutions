@@ -586,6 +586,45 @@ html, body {
   line-height: 1.65;
   color: #6b6b6b;
 }
+/* ===== TRIANGLE HUB LAYOUT ===== */
+
+/* move Marketing slightly UP */
+[data-hub="marketing"] {
+  transform: translateY(-40px);
+}
+
+/* move Operations slightly UP */
+[data-hub="operations"] {
+  transform: translateY(-40px);
+}
+
+/* keep Technology slightly LOWER for triangle */
+[data-hub="technology"] {
+  transform: translateY(30px);
+}
+/* LEFT column → push more LEFT */
+.grid > div:nth-child(1) {
+  transform: translate(-80px, -70px);
+}
+
+/* CENTER column → keep centered & slightly down */
+.grid > div:nth-child(2) {
+  transform: translateY(70px);
+}
+
+/* RIGHT column → push more RIGHT */
+.grid > div:nth-child(3) {
+  transform: translate(80px, -70px);
+}
+
+/* ===== Responsive reset ===== */
+@media (max-width: 1024px) {
+  .grid > div:nth-child(1),
+  .grid > div:nth-child(2),
+  .grid > div:nth-child(3) {
+    transform: none;
+  }
+}
   </style>
 </head>
 <div class="nav-wrap">
@@ -640,50 +679,51 @@ html, body {
             
             <!-- Center Label -->
             <div class="absolute inset-0 flex items-center justify-center translate-y-3">
-              <span id="operations-label" class="text-xl md:text-2xl font-semibold" style="color: #0F172A;">Operations</span>
+              <span id="marketing-label" class="text-xl md:text-2xl font-semibold" style="color: #0F172A;">Marketing</span>
             </div>
             
             <!-- Service Buttons -->
             <!-- Top -->
-            <button class="service-btn btn-entrance float-1 absolute left-1/2 -translate-x-1/2 -top-4 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="0">
-              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);">
-                <svg class="w-5 h-5" style="color: #0284C7;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            <button class="service-btn btn-entrance float-3 absolute left-1/2 -translate-x-1/2 -top-4 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="200">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #FEF9C3 0%, #FEF08A 100%);">
+                <svg class="w-5 h-5" style="color: #CA8A04;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
               </div>
               <div class="text-left">
-                <div class="text-xs font-medium" style="color: #64748B;">Outsourced</div>
-                <div class="text-sm font-semibold" style="color: #0F172A;">IT Services</div>
+                <div class="text-xs font-medium" style="color: #64748B;">Digital</div>
+                <div class="text-sm font-semibold" style="color: #0F172A;">Marketing</div>
               </div>
             </button>
             
             <!-- Right -->
-            <button class="service-btn btn-entrance float-2 absolute top-[38%] -translate-y-1/2 -right-28 xl:-right-32 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="80">
-              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #DCFCE7 0%, #BBF7D0 100%);">
-                <svg class="w-5 h-5" style="color: #16A34A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            <button class="service-btn btn-entrance float-1 absolute top-[38%] -translate-y-1/2 -right-40 xl:-right-40 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="280">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #E0E7FF 0%, #C7D2FE 100%);">
+                <svg class="w-5 h-5" style="color: #4F46E5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
               </div>
               <div class="text-left">
-                <div class="text-xs font-medium" style="color: #64748B;">Process</div>
-                <div class="text-sm font-semibold" style="color: #0F172A;">Automation</div>
+                <div class="text-xs font-medium" style="color: #64748B;">Performance</div>
+                <div class="text-sm font-semibold" style="color: #0F172A;">Marketing</div>
               </div>
             </button>
             
             <!-- Bottom -->
-            <button class="service-btn btn-entrance float-3 absolute left-1/2 -translate-x-1/2 -bottom-7 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="160">
-              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);">
-                <svg class="w-5 h-5" style="color: #D97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <button class="service-btn btn-entrance float-4 absolute left-1/2 -translate-x-1/2 -bottom-3 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="360">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #FFE4E6 0%, #FECDD3 100%);">
+                <svg class="w-5 h-5" style="color: #E11D48;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
               </div>
               <div class="text-left">
-                <div class="text-xs font-medium" style="color: #64748B;">System</div>
-                <div class="text-sm font-semibold" style="color: #0F172A;">Support</div>
+                <div class="text-xs font-medium" style="color: #64748B;">Brand</div>
+                <div class="text-sm font-semibold" style="color: #0F172A;">Strategy</div>
               </div>
             </button>
+            
             <!-- Left -->
-            <button class="service-btn btn-entrance float-4 absolute top-[38%] -translate-y-1/2 -left-32 xl:-left-36 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="240">
-              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #F3E8FF 0%, #E9D5FF 100%);">
-                <svg class="w-5 h-5" style="color: #9333EA;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            <button class="service-btn btn-entrance float-2 absolute top-[38%] -translate-y-1/2 -left-40 xl:-left-43 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="440">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);">
+                <svg class="w-5 h-5" style="color: #059669;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
               </div>
               <div class="text-left">
-                <div class="text-xs font-medium" style="color: #64748B;">Digital</div>
-                <div class="text-sm font-semibold" style="color: #0F172A;">Transformation</div>
+                <div class="text-xs font-medium" style="color: #64748B;">Audits &</div>
+                <div class="text-sm font-semibold" style="color: #0F172A;">Reports</div>
               </div>
             </button>
           </div>
@@ -713,7 +753,7 @@ html, body {
             </button>
             
             <!-- Right -->
-            <button class="service-btn btn-entrance float-3 absolute top-[38%] -translate-y-1/2 -right-32 xl:-right-36 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="180">
+            <button class="service-btn btn-entrance float-3 absolute top-[38%] -translate-y-1/2 -right-40 xl:-right-36 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="180">
               <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #FCE7F3 0%, #FBCFE8 100%);">
                 <svg class="w-5 h-5" style="color: #DB2777;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
               </div>
@@ -724,7 +764,7 @@ html, body {
             </button>
             
             <!-- Bottom -->
-            <button class="service-btn btn-entrance float-1 absolute left-1/2 -translate-x-1/2 -bottom-7 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="260">
+            <button class="service-btn btn-entrance float-1 absolute left-1/2 -translate-x-1/2 -bottom-5 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="260">
               <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #CCFBF1 0%, #99F6E4 100%);">
                 <svg class="w-5 h-5" style="color: #0D9488;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg>
               </div>
@@ -755,51 +795,50 @@ html, body {
             
             <!-- Center Label -->
             <div class="absolute inset-0 flex items-center justify-center translate-y-3">
-              <span id="marketing-label" class="text-xl md:text-2xl font-semibold" style="color: #0F172A;">Marketing</span>
+              <span id="operations-label" class="text-xl md:text-2xl font-semibold" style="color: #0F172A;">Operations</span>
             </div>
             
             <!-- Service Buttons -->
             <!-- Top -->
-            <button class="service-btn btn-entrance float-3 absolute left-1/2 -translate-x-1/2 -top-4 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="200">
-              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #FEF9C3 0%, #FEF08A 100%);">
-                <svg class="w-5 h-5" style="color: #CA8A04;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"/></svg>
+            <button class="service-btn btn-entrance float-1 absolute left-1/2 -translate-x-1/2 -top-4 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="0">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);">
+                <svg class="w-5 h-5" style="color: #0284C7;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
               </div>
               <div class="text-left">
-                <div class="text-xs font-medium" style="color: #64748B;">Digital</div>
-                <div class="text-sm font-semibold" style="color: #0F172A;">Marketing</div>
+                <div class="text-xs font-medium" style="color: #64748B;">Outsourced</div>
+                <div class="text-sm font-semibold" style="color: #0F172A;">IT Services</div>
               </div>
             </button>
             
             <!-- Right -->
-            <button class="service-btn btn-entrance float-1 absolute top-[38%] -translate-y-1/2 -right-28 xl:-right-32 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="280">
-              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #E0E7FF 0%, #C7D2FE 100%);">
-                <svg class="w-5 h-5" style="color: #4F46E5;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+            <button class="service-btn btn-entrance float-2 absolute top-[38%] -translate-y-1/2 -right-40 xl:-right-40 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="80">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #DCFCE7 0%, #BBF7D0 100%);">
+                <svg class="w-5 h-5" style="color: #16A34A;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
               </div>
               <div class="text-left">
-                <div class="text-xs font-medium" style="color: #64748B;">Performance</div>
-                <div class="text-sm font-semibold" style="color: #0F172A;">Marketing</div>
+                <div class="text-xs font-medium" style="color: #64748B;">Process</div>
+                <div class="text-sm font-semibold" style="color: #0F172A;">Automation</div>
               </div>
             </button>
             
             <!-- Bottom -->
-            <button class="service-btn btn-entrance float-4 absolute left-1/2 -translate-x-1/2 -bottom-7 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="360">
-              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #FFE4E6 0%, #FECDD3 100%);">
-                <svg class="w-5 h-5" style="color: #E11D48;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+            <button class="service-btn btn-entrance float-3 absolute left-1/2 -translate-x-1/2 -bottom-10 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="160">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);">
+                <svg class="w-5 h-5" style="color: #D97706;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
               </div>
               <div class="text-left">
-                <div class="text-xs font-medium" style="color: #64748B;">Brand</div>
-                <div class="text-sm font-semibold" style="color: #0F172A;">Strategy</div>
+                <div class="text-xs font-medium" style="color: #64748B;">System</div>
+                <div class="text-sm font-semibold" style="color: #0F172A;">Support</div>
               </div>
             </button>
-            
             <!-- Left -->
-            <button class="service-btn btn-entrance float-2 absolute top-[38%] -translate-y-1/2 -left-28 xl:-left-32 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="440">
-              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #D1FAE5 0%, #A7F3D0 100%);">
-                <svg class="w-5 h-5" style="color: #059669;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            <button class="service-btn btn-entrance float-4 absolute top-[38%] -translate-y-1/2 -left-40 xl:-left-43 px-4 py-3 rounded-2xl flex items-center gap-3 min-w-max" style="background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(226, 232, 240, 0.8); box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);" data-delay="240">
+              <div class="w-9 h-9 rounded-xl flex items-center justify-center" style="background: linear-gradient(135deg, #F3E8FF 0%, #E9D5FF 100%);">
+                <svg class="w-5 h-5" style="color: #9333EA;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
               </div>
               <div class="text-left">
-                <div class="text-xs font-medium" style="color: #64748B;">Audits &</div>
-                <div class="text-sm font-semibold" style="color: #0F172A;">Reports</div>
+                <div class="text-xs font-medium" style="color: #64748B;">Digital</div>
+                <div class="text-sm font-semibold" style="color: #0F172A;">Transformation</div>
               </div>
             </button>
           </div>
