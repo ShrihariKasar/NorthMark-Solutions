@@ -542,24 +542,14 @@
 /* ================= STRONG ENTERPRISE PILL ================= */
 
 .who-strong {
-  margin-top: 2rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
   display: inline-block;
-  padding: 0.65rem 1.6rem;
+  background: linear-gradient(135deg, rgba(15,15,15,0.92), rgba(40,40,40,0.92));
+  color: #fff;
+  padding: 0.55rem 1.35rem;
+  font-size: 0.95rem;
   border-radius: 999px;
-  background: #0b0b0b;
-  color: #ffffff;
-  transition: all 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  font-weight: 600;
 }
-
-.who-strong:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-}
-
 /* ================= GRID SYSTEM ================= */
 
 .stats-grid {
@@ -688,11 +678,10 @@
 
 /* ===== EYEBROW ===== */
 .problem-container h3 {
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #6b6b6b;
-  margin-bottom: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
 }
 
 /* ===== MAIN HEADING ===== */
@@ -1138,10 +1127,21 @@
   font-size: 0.95rem;
 }
 .why-quote {
-  font-size: 1.60rem;
-  line-height: 1.7;
-  color: #000000;
-  max-width: 520px;
+  display: inline-block;
+  background: #2f2f2f;
+  color: #ffffff;
+
+  padding: 12px 22px;        /* smaller size */
+  border-radius: 999px;      /* perfect pill */
+
+  font-size: 15px;           /* reduced text */
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+
+  max-width: 520px;          /* prevents too wide look */
 }
 
 /* ===== RIGHT STACKED CARDS ===== */
