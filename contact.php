@@ -1,87 +1,102 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-require 'PHPMailer-master/src/Exception.php';
-require 'PHPMailer-master/src/PHPMailer.php';
-require 'PHPMailer-master/src/SMTP.php';
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $full_name = htmlspecialchars($_POST['full_name']);
-    $email     = htmlspecialchars($_POST['email']);
-    $company   = htmlspecialchars($_POST['company']);
-    $phone     = htmlspecialchars($_POST['phone']);
-    $message   = htmlspecialchars($_POST['message']);
-
-    /* ================= SMTP EMAIL CONFIG ================= */
-
-    $mail = new PHPMailer(true);
-
-    try {
-
-        $mail->isSMTP();
-        $mail->Host       = 'smtp.hostinger.com';
-        $mail->SMTPAuth   = true;
-        $mail->Username   = 'connect@northmarksolutions.in';
-        $mail->Password   = 'NorthMark@2026';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port       = 587;
-
-        $mail->setFrom('connect@northmarksolutions.in', 'NorthMark Solutions');
-        $mail->addAddress('shriharikasar1436@gmail.com');
-
-        $mail->addReplyTo($email, $full_name);
-
-        $mail->isHTML(false);
-        $mail->Subject = 'New Contact Request - NorthMark Solutions';
-
-        $mail->Body = "
-New Contact Submission:
-
-Full Name: $full_name
-Email: $email
-Company: $company
-Phone: $phone
-
-Message:
-$message
-";
-
-        $mail->send();
-
-    } catch (Exception $e) {
-        echo "Mailer Error: {$mail->ErrorInfo}";
-        exit;
+    /* ==============================
+       0️⃣ HONEYPOT (SPAM PROTECTION)
+    ============================== */
+    if (!empty($_POST['website'])) {
+        exit(); // Bot detected
     }
 
-    /* ================= SAVE TO EXCEL (CSV) ================= */
+    /* ==============================
+       1️⃣ SANITIZE + VALIDATE INPUT
+    ============================== */
 
-    $file = 'contact_submissions.csv';
+    function clean($data) {
+        return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
+    }
 
-    $data = [
-        date("Y-m-d H:i:s"),
-        $full_name,
-        $email,
-        $company,
-        $phone,
-        $message
-    ];
+    $full_name = clean($_POST['full_name'] ?? '');
+    $email     = clean($_POST['email'] ?? '');
+    $company   = clean($_POST['company'] ?? '');
+    $phone     = clean($_POST['phone'] ?? '');
+    $message   = clean($_POST['message'] ?? '');
+    $date      = date("Y-m-d H:i:s");
 
+    // Basic validation
+    if (empty($full_name) || empty($email) || empty($message)) {
+        die("Required fields missing.");
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("Invalid email format.");
+    }
+
+    /* ==============================
+       2️⃣ SEND EMAIL
+    ============================== */
+
+    $to = "connect@northmarksolutions.in";
+    $subject = "New Contact Request - NorthMark Solutions";
+
+    $body = "New Contact Submission:\n\n";
+    $body .= "Name: $full_name\n";
+    $body .= "Email: $email\n";
+    $body .= "Company: $company\n";
+    $body .= "Phone: $phone\n\n";
+    $body .= "Message:\n$message\n";
+    $body .= "\nSubmitted At: $date";
+
+    $headers = "From: NorthMark Solutions <no-reply@northmarksolutions.in>\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "X-Mailer: PHP/" . phpversion();
+
+    $mail_sent = mail($to, $subject, $body, $headers);
+
+    /* ==============================
+       3️⃣ APPEND TO CSV FILE
+    ============================== */
+
+    $file = __DIR__ . "/contact_submissions.csv";
     $file_exists = file_exists($file);
-    $fp = fopen($file, 'a');
 
-    if (!$file_exists) {
-        fputcsv($fp, ['Date', 'Full Name', 'Email', 'Company', 'Phone', 'Message']);
+    $fp = fopen($file, "a");
+
+    if ($fp) {
+
+        // Lock file while writing (prevents corruption)
+        flock($fp, LOCK_EX);
+
+        if (!$file_exists) {
+            fputcsv($fp, [
+                "Full Name",
+                "Email",
+                "Company",
+                "Phone",
+                "Message",
+                "Submitted At"
+            ]);
+        }
+
+        fputcsv($fp, [
+            $full_name,
+            $email,
+            $company,
+            $phone,
+            $message,
+            $date
+        ]);
+
+        flock($fp, LOCK_UN);
+        fclose($fp);
     }
 
-    fputcsv($fp, $data);
-    fclose($fp);
+    /* ==============================
+       4️⃣ REDIRECT
+    ============================== */
 
-    echo "<script>
-        alert('Thank you! Your request has been submitted.');
-        window.location='contact.html';
-    </script>";
+    header("Location: thankyou.html");
+    exit();
 }
 ?>
