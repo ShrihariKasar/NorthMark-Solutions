@@ -65,7 +65,7 @@ Submitted At: $date
         $mail->Host       = 'smtp.hostinger.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'connect@northmarksolutions.in';
-        $mail->Password   = 'YOUR_CONNECT_EMAIL_PASSWORD'; // 🔴 PUT REAL PASSWORD
+        $mail->Password   = 'NorthMark@2026';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
