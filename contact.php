@@ -1,5 +1,12 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'PHPMailer-master/src/Exception.php';
+require 'PHPMailer-master/src/PHPMailer.php';
+require 'PHPMailer-master/src/SMTP.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $full_name = htmlspecialchars($_POST['full_name']);
@@ -8,31 +15,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone     = htmlspecialchars($_POST['phone']);
     $message   = htmlspecialchars($_POST['message']);
 
-    /* ===== EMAIL CONFIG ===== */
+    /* ================= SMTP EMAIL CONFIG ================= */
 
-    $to = "shriharikasar1436@gmail.com";   // testing email
-    $subject = "New Contact Request - NorthMark Solutions";
+    $mail = new PHPMailer(true);
 
-    $body = "
-    New Contact Submission:
+    try {
 
-    Full Name: $full_name
-    Email: $email
-    Company: $company
-    Phone: $phone
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.hostinger.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'connect@northmarksolutions.in';
+        $mail->Password   = 'NorthMark@2026';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port       = 587;
 
-    Message:
-    $message
-    ";
+        $mail->setFrom('connect@northmarksolutions.in', 'NorthMark Solutions');
+        $mail->addAddress('shriharikasar1436@gmail.com');
 
-    $headers = "From: connect@northmarksolutions.in\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        $mail->addReplyTo($email, $full_name);
 
-    mail($to, $subject, $body, $headers);
+        $mail->isHTML(false);
+        $mail->Subject = 'New Contact Request - NorthMark Solutions';
 
+        $mail->Body = "
+New Contact Submission:
 
-    /* ===== SAVE TO EXCEL (CSV FILE) ===== */
+Full Name: $full_name
+Email: $email
+Company: $company
+Phone: $phone
+
+Message:
+$message
+";
+
+        $mail->send();
+
+    } catch (Exception $e) {
+        echo "Mailer Error: {$mail->ErrorInfo}";
+        exit;
+    }
+
+    /* ================= SAVE TO EXCEL (CSV) ================= */
 
     $file = 'contact_submissions.csv';
 
@@ -46,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ];
 
     $file_exists = file_exists($file);
-
     $fp = fopen($file, 'a');
 
     if (!$file_exists) {
