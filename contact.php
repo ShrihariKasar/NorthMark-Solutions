@@ -1,12 +1,19 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require __DIR__ . '/phpmailer/PHPMailer.php';
+require __DIR__ . '/phpmailer/SMTP.php';
+require __DIR__ . '/phpmailer/Exception.php';
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     /* ==============================
        0️⃣ HONEYPOT (SPAM PROTECTION)
     ============================== */
     if (!empty($_POST['website'])) {
-        exit(); // Bot detected
+        exit();
     }
 
     /* ==============================
@@ -24,7 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $message   = clean($_POST['message'] ?? '');
     $date      = date("Y-m-d H:i:s");
 
-    // Basic validation
     if (empty($full_name) || empty($email) || empty($message)) {
         die("Required fields missing.");
     }
@@ -34,25 +40,52 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     /* ==============================
-       2️⃣ SEND EMAIL
+       2️⃣ SEND EMAIL VIA SMTP
     ============================== */
 
-    $to = "connect@northmarksolutions.in";
-    $subject = "New Contact Request - NorthMark Solutions";
+    $body = "
+New Contact Submission
 
-    $body = "New Contact Submission:\n\n";
-    $body .= "Name: $full_name\n";
-    $body .= "Email: $email\n";
-    $body .= "Company: $company\n";
-    $body .= "Phone: $phone\n\n";
-    $body .= "Message:\n$message\n";
-    $body .= "\nSubmitted At: $date";
+Name: $full_name
+Email: $email
+Company: $company
+Phone: $phone
 
-    $headers = "From: NorthMark Solutions <no-reply@northmarksolutions.in>\r\n";
-    $headers .= "Reply-To: $email\r\n";
-    $headers .= "X-Mailer: PHP/" . phpversion();
+Message:
+$message
 
-    $mail_sent = mail($to, $subject, $body, $headers);
+Submitted At: $date
+";
+
+    $mail = new PHPMailer(true);
+
+    try {
+
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.hostinger.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'connect@northmarksolutions.in';
+        $mail->Password   = 'YOUR_CONNECT_EMAIL_PASSWORD'; // 🔴 PUT REAL PASSWORD
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
+        // Send from your main mailbox
+        $mail->setFrom('connect@northmarksolutions.in', 'NorthMark Solutions');
+
+        // Receive in same inbox
+        $mail->addAddress('connect@northmarksolutions.in');
+
+        // When you click Reply, it goes to customer
+        $mail->addReplyTo($email, $full_name);
+
+        $mail->Subject = 'New Contact Request - NorthMark Solutions';
+        $mail->Body    = $body;
+
+        $mail->send();
+
+    } catch (Exception $e) {
+        error_log("Mailer Error: " . $mail->ErrorInfo);
+    }
 
     /* ==============================
        3️⃣ APPEND TO CSV FILE
@@ -65,7 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($fp) {
 
-        // Lock file while writing (prevents corruption)
         flock($fp, LOCK_EX);
 
         if (!$file_exists) {
