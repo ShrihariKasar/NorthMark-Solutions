@@ -5,8 +5,6 @@
   <title>Contact Us | NorthMark Solutions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Contact NorthMark Solutions to discuss growth, technology, and operational systems." />
-<link rel="manifest" href="/manifest.json">
-<meta name="theme-color" content="#0a0a0a">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
@@ -16,24 +14,25 @@
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
+
 <div class="nav-wrap">
   <div class="navbar">
+
     <div class="nav-logo">
-  <a href="index.html">
-    <img src="images/logo.png" alt="NorthMark Logo">
-  </a>
-</div>
+      <img src="images/logo.png" alt="NorthMark Logo" />
+    </div>
+
     <button class="nav-toggle" aria-label="Toggle menu">
       <i class="fas fa-bars"></i>
     </button>
 
-    <nav class="nav-links">
+    <div class="nav-links">
       <a href="index.html" class="nav-link">Home</a>
       <a href="services.html" class="nav-link">Services</a>
       <a href="industry.html" class="nav-link">Industries</a>
       <a href="about.html" class="nav-link">About us</a>
       <a href="contact.html" class="nav-link nav-contact">Contact</a>
-    </nav>
+    </div>
 
   </div>
 </div>
@@ -52,40 +51,40 @@
   <section class="contact-section">
     <div class="contact-container reveal">
 
-      <form class="contact-form">
+      <form class="contact-form" action="contact.php" method="POST">
 
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your full name" required />
-          </div>
+  <div class="form-grid">
+    <div class="form-group">
+      <label>Full Name</label>
+      <input type="text" name="full_name" placeholder="Enter your full name" required />
+    </div>
 
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="Enter your email" required />
-          </div>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" name="email" placeholder="Enter your email" required />
+    </div>
 
-          <div class="form-group">
-            <label>Company</label>
-            <input type="text" placeholder="Company name" />
-          </div>
+    <div class="form-group">
+      <label>Company</label>
+      <input type="text" name="company" placeholder="Company name" />
+    </div>
 
-          <div class="form-group">
-            <label>Phone</label>
-            <input type="tel" placeholder="Phone number" />
-          </div>
-        </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" name="phone" placeholder="Phone number" />
+    </div>
+  </div>
 
-        <div class="form-group full">
-          <label>Message</label>
-          <textarea rows="5" placeholder="Tell us about your requirements"></textarea>
-        </div>
+  <div class="form-group full">
+    <label>Message</label>
+    <textarea name="message" rows="5" placeholder="Tell us about your requirements"></textarea>
+  </div>
 
-        <div class="form-actions">
-          <button type="submit" class="btn-primary">Submit Request</button>
-        </div>
+  <div class="form-actions">
+    <button type="submit" class="btn-primary">Submit Request</button>
+  </div>
 
-      </form>
+</form>
 
     </div>
   </section>
