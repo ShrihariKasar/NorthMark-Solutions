@@ -1,1 +1,73 @@
-<h2>Thank you! We will contact you shortly.</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Thank You | NorthMark Solutions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    .popup {
+      background: #ffffff;
+      padding: 40px 50px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+      animation: popIn 0.4s ease-out;
+      max-width: 420px;
+      width: 90%;
+    }
+
+    .popup h2 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .popup p {
+      margin: 0;
+      font-size: 15px;
+      color: #475569;
+    }
+
+    .popup .check {
+      font-size: 42px;
+      color: #16a34a;
+      margin-bottom: 15px;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="popup">
+    <div class="check">✔</div>
+    <h2>Thank You!</h2>
+    <p>We have received your request and will contact you shortly.</p>
+  </div>
+
+</body>
+</html>
